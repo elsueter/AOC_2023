@@ -1,3 +1,2 @@
 all:
-	g++ part1.cpp -o part1
-	g++ part2.cpp -o part2
+	g++ main.cpp -O0 -o main
