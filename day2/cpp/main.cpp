@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <chrono>
 
 struct dirPair{
     std::string dir;
@@ -96,20 +97,19 @@ int part2(std::vector<dirPair> input){
 }
 
 int main(){
-    clock_t start, end;
-
-    start = clock();
+    auto t1 = std::chrono::high_resolution_clock::now();
     
     std::vector<dirPair> input = readFile();
 
     int pt1 = part1(input);
     int pt2 = part2(input);
 
-    end = clock();
+    auto t2 = std::chrono::high_resolution_clock::now();
+    auto ms_int = std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1);
 
     std::cout<<"Part 1 result: "<<pt1<<std::endl;
     std::cout<<"Part 2 result: "<<pt2<<std::endl;
-    std::cout<<"Took: "<<(((double) (end - start)) * 1000000000) / CLOCKS_PER_SEC<<"ns"<<std::endl;
+    std::cout<<"Took: "<<ms_int.count()<<"ns\n";
 
     return 0;
 }

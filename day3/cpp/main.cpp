@@ -2,6 +2,7 @@
 #include <vector>
 #include <fstream>
 #include <cmath>
+#include <chrono>
 
 typedef std::vector<bool> reading;
 
@@ -92,7 +93,7 @@ int part1(reading rawGamma)
     return gamma*epsilon;
 }
 
-int part2(bool firstBit, std::vector<reading> input)
+int part2(std::vector<reading> input)
 {
     std::vector<reading> oxygenReadings = input;
     std::vector<reading> co2Readings = input;
@@ -161,29 +162,24 @@ int part2(bool firstBit, std::vector<reading> input)
         }
     }
 
-    std::cout<<reading2Int(oxygenReadings[0])<<" "<<reading2Int(co2Readings[0])<<std::endl;
-
-    // Oxy 3399   Co2 1249
-
     return reading2Int(co2Readings[0])*reading2Int(oxygenReadings[0]);
 }
 
 int main(){
-    clock_t start, end;
-
-    start = clock();
+    auto t1 = std::chrono::high_resolution_clock::now();
     
     std::vector<reading> input = readFile();
     reading rawGamma = getRawGamma(input);
 
     int pt1 = part1(rawGamma);
-    int pt2 = part2(rawGamma[0], input);
+    int pt2 = part2(input);
 
-    end = clock();
+    auto t2 = std::chrono::high_resolution_clock::now();
+    auto ms_int = std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1);
 
     std::cout<<"Part 1 result: "<<pt1<<std::endl;
     std::cout<<"Part 2 result: "<<pt2<<std::endl;
-    std::cout<<"Took: "<<(((double) (end - start)) * 1000000000) / CLOCKS_PER_SEC<<"ns"<<std::endl;
+    std::cout<<"Took: "<<ms_int.count()<<"ns\n";
 
 
     return 0;
