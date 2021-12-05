@@ -1,30 +1,22 @@
 #include <iostream>
-
 #include <vector>
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <fstream>
 
 std::vector<int> readFile(){
 
     std::vector<int> input;
     input.reserve(2000);
+    
+    std::string file("../input.txt");
 
-    FILE * fp;
-    char * line = NULL;
-    size_t len = 0;
-    ssize_t read;
+    std::ifstream inputFile(file);
 
-    fp = fopen("../input.txt", "r");
-
-    while ((read = getline(&line, &len, fp)) != -1) {
-        input.push_back(atoi(line));
+    for (std::string line; std::getline(inputFile, line); ) 
+    {
+        input.push_back(std::stoi(line));
     }
-
-    fclose(fp);
-    if (line)
-        free(line);
+    
+    inputFile.close();
 
     return input;
 }
@@ -61,8 +53,9 @@ int main(){
     clock_t start, end;
 
     start = clock();
-
+    
     std::vector<int> input = readFile();
+
     int pt1 = part1(input);
     int pt2 = part2(input);
 
