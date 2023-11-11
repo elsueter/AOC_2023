@@ -1,16 +1,4 @@
-use std::{
-    fs::File,
-    io::{prelude::*, BufReader},
-    path::Path,
-};
-
-fn lines_from_file(filename: impl AsRef<Path>) -> Vec<String> {
-    let file = File::open(filename).expect("no such file");
-    let buf = BufReader::new(file);
-    buf.lines()
-        .map(|line| line.expect("error"))
-        .collect()
-}
+//use crate::utils;
 
 #[derive(Debug)]
 struct Bounds{
@@ -33,13 +21,11 @@ fn process_string(line: String) -> Vec<Bounds>{
     vec![Bounds{lower: boundaries[0], upper: boundaries[1]}, Bounds{lower: boundaries[2], upper: boundaries[3]}]
 }
 
-fn part_1(){
-    let lines = lines_from_file("input.txt");
-
+pub fn part_1(lines: &Vec<String>) -> i32{
     let mut total = 0;
 
     for line in lines{
-        let bounds = process_string(line);
+        let bounds = process_string(line.clone());
         if bounds[0].lower >= bounds[1].lower{
             if bounds[0].upper <= bounds[1].upper{
                 total += 1;
@@ -53,16 +39,14 @@ fn part_1(){
             }
         }
     }
-    println!("{}", total);
+    total
 }
 
-fn part_2(){
-    let lines = lines_from_file("input.txt");
-
+pub fn part_2(lines: &Vec<String>) -> i32{
     let mut total = 0;
 
     for line in lines{
-        let bounds = process_string(line);
+        let bounds = process_string(line.clone());
         if bounds[0].lower > bounds[1].upper{
             continue;
         }
@@ -71,10 +55,5 @@ fn part_2(){
         }
         total += 1;
     }
-    println!("{}", total);
-}
-
-fn main(){
-    part_1(); 
-    part_2();
+    total
 }

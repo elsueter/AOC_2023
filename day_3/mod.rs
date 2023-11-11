@@ -1,20 +1,6 @@
-use std::{
-    fs::File,
-    io::{prelude::*, BufReader},
-    path::Path,
-};
+//use crate::utils;
 
-fn lines_from_file(filename: impl AsRef<Path>) -> Vec<String> {
-    let file = File::open(filename).expect("no such file");
-    let buf = BufReader::new(file);
-    buf.lines()
-        .map(|line| line.expect("error"))
-        .collect()
-}
-
-fn part_1(){
-    let lines = lines_from_file("input.txt");
-
+pub fn part_1(lines: &Vec<String>) -> i32{
     let mut total = 0;
 
     for line in lines
@@ -46,12 +32,10 @@ fn part_1(){
             }
         }
     }
-    println!("{:?}", total);
+    total as i32
 }
 
-fn part_2(){
-    let lines = lines_from_file("input.txt");
-
+pub fn part_2(lines: &Vec<String>) -> i32{
     let mut seen_values = [0; 52];
     let mut total = 0;
     let mut mode = 0;
@@ -86,11 +70,5 @@ fn part_2(){
             total += i + 1;
         }
     }
-    
-    println!("{:?}", total);
-}
-
-fn main(){
-    part_1();
-    part_2();
+    total as i32
 }

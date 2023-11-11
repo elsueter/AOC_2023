@@ -1,17 +1,5 @@
-
-use std::{
-    fs::File,
-    io::{prelude::*, BufReader},
-    path::Path, collections::VecDeque,
-};
-
-fn lines_from_file(filename: impl AsRef<Path>) -> Vec<String> {
-    let file = File::open(filename).expect("no such file");
-    let buf = BufReader::new(file);
-    buf.lines()
-        .map(|line| line.expect("error"))
-        .collect()
-}
+//use crate::utils;
+use std::collections::VecDeque;
 
 fn split_vector(input: Vec<String>) -> Vec<Vec<String>>{
     let mut out: Vec<Vec<String>> = vec![vec![]];
@@ -67,8 +55,8 @@ fn parse_instructions(input: &Vec<String>) -> Vec<Vec<usize>>{
     out
 }
 
-fn part_1(){
-    let temp = split_vector(lines_from_file("input.txt"));
+pub fn part_1(lines: &Vec<String>) -> i32{
+    let temp = split_vector(lines.clone());
 
     let mut stacks = parse_stacks(&temp[0]);
     let instructions = parse_instructions(&temp[1]);
@@ -86,11 +74,11 @@ fn part_1(){
         out.push(stack[stack.len()-1]);
     }
 
-    println!("{:?}", String::from_iter(out));
+    String::from_iter(out).parse::<i32>().unwrap()
 }
 
-fn part_2(){
-    let temp = split_vector(lines_from_file("input.txt"));
+pub fn part_2(lines: &Vec<String>) -> i32{
+    let temp = split_vector(lines.clone());
 
     let mut stacks = parse_stacks(&temp[0]);
     let instructions = parse_instructions(&temp[1]);
@@ -111,10 +99,5 @@ fn part_2(){
         out.push(stack[stack.len()-1]);
     }
 
-    println!("{:?}", String::from_iter(out));
-}
-
-fn main(){
-    part_1();
-    part_2();
+    String::from_iter(out).parse::<i32>().unwrap()
 }
