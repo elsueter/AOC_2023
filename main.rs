@@ -35,7 +35,10 @@ mod utils;
 macro_rules! create_function {
     ($day:ident) => {
         fn $day(data_path:&Vec<String>) -> Vec<i32> {
-            vec![generate_body!($day, data_path, part_1), generate_body!($day, data_path, part_2)]
+            let now = Instant::now();
+            let result = vec![generate_body!($day, data_path, part_1), generate_body!($day, data_path, part_2)];
+            println!("Time taken: {}", now.elapsed().as_micros());
+            result
         }
     };
 }
@@ -61,7 +64,7 @@ fn main() {
     let data_string = day.as_str().to_owned() + "/" + mode.as_str() + ".txt";
     let lines = utils::lines_from_file(data_string);
 
-    println!("Running {} with {}.txt", day, mode);
+    println!("Running day {} with {}.txt", day, mode);
 
     let mut result: Vec<i32> = vec![];
     
@@ -90,8 +93,6 @@ fn main() {
     create_function!(day_23);
     create_function!(day_24);
     create_function!(day_25);
- 
-    let now = Instant::now();
 
     match day.as_str() {
         "day_1" => {
@@ -173,6 +174,4 @@ fn main() {
     }
 
     println!("{:?}", result);
-
-    println!("Time taken: {}", now.elapsed().as_micros());
 }
