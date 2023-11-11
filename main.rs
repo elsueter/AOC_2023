@@ -67,7 +67,7 @@ fn main() {
     println!("Running day {} with {}.txt", day, mode);
 
     let mut result: Vec<i32> = vec![];
-    
+ 
     create_function!(day_1);
     create_function!(day_2);
     create_function!(day_3);
