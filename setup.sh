@@ -1,25 +1,25 @@
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day01.rs
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day02.rs
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day03.rs
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day04.rs
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day05.rs
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day06.rs
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day07.rs
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day08.rs
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day09.rs
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day10.rs
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day11.rs
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day12.rs
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day13.rs
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day14.rs
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day15.rs
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day16.rs
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day17.rs
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day18.rs
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day19.rs
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day20.rs
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day21.rs
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day22.rs
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day23.rs
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day24.rs
-echo 'pub fn part_1(lines:&Vec<String>) -> i32{0}pub fn part_2(lines:&Vec<String>) -> i32{0}' >day25.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day01.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day02.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day03.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day04.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day05.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day06.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day07.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day08.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day09.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day10.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day11.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day12.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day13.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day14.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day15.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day16.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day17.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day18.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day19.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day20.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day21.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day22.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day23.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day24.rs
+echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day25.rs
