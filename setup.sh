@@ -1,3 +1,6 @@
+mkdir days
+mkdir input
+
 echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day01.rs
 echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day02.rs
 echo 'use crate::utils;\nuse crate::return_sol;\npub fn part1(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}\npub fn part2(lines:&Vec<String>) -> utils::Solution{return_sol!(0)}' >days/day03.rs
