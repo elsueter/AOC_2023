@@ -1,11 +1,10 @@
 use std::{
-    collections::vecdeque,
-    fmt::display,
-    fmt::formatter,
-    fmt::result,
-    fs::file,
-    io::{bufreader, prelude::*},
-    path::path,
+    fmt::Display,
+    fmt::Formatter,
+    fmt::Result,
+    fs::File,
+    io::{prelude::*, BufReader},
+    path::Path,
 };
 
 pub enum Solution {
