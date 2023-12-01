@@ -16,58 +16,51 @@ pub fn part1(lines: &Vec<String>) -> utils::Solution {
 use std::collections::HashMap;
 
 pub fn part2(lines: &Vec<String>) -> utils::Solution {
-    let digits = HashMap::from([
-        ("one", "1"),
-        ("two", "2"),
-        ("three", "3"),
-        ("four", "4"),
-        ("five", "5"),
-        ("six", "6"),
-        ("seven", "7"),
-        ("eight", "8"),
-        ("nine", "9"),
-    ]);
-
-    let mut tot: u32 = 0;
-
+    let numbers = [
+        "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+    ];
+    let mut tot = 0;
     for line in lines {
-        let mut new_line = line.to_string();
+        let mut pos1: u32 = 0;
+        let mut pos2: u32 = 0;
 
-        let mut lowest = "";
-        let mut highest = "";
-        let mut index = 1000;
-        let mut rindex = 0;
-
-        for digit in digits.keys() {
-            if let Some(var) = line.find(digit) {
-                if index > var {
-                    index = var;
-                    lowest = digit;
+        let mut idx = 0;
+        while let Some(slice) = line.get(idx..) {
+            if slice.starts_with(|c| c as u32 <= 58) {
+                pos1 = slice.chars().nth(0).unwrap() as u32 - 48;
+                break;
+            } else {
+                for (i, num) in numbers.iter().enumerate() {
+                    if slice.starts_with(num) {
+                        pos1 = i as u32 + 1;
+                        break;
+                    }
                 }
             }
-            if let Some(var) = line.rfind(digit) {
-                if rindex < var {
-                    rindex = var;
-                    highest = digit;
-                }
+            idx += 1;
+            if pos1 > 0 {
+                break;
             }
         }
-
-        if lowest != "" {
-            new_line = line.replacen(lowest, digits.get(lowest).unwrap(), 1);
+        let mut idx = line.len();
+        while let Some(slice) = line.get(..idx) {
+            if slice.ends_with(|c| c as u32 <= 58) {
+                pos2 = slice.chars().nth(slice.len() - 1).unwrap() as u32 - 48;
+                break;
+            } else {
+                for (i, num) in numbers.iter().enumerate() {
+                    if slice.ends_with(num) {
+                        pos2 = i as u32 + 1;
+                        break;
+                    }
+                }
+            }
+            idx -= 1;
+            if pos2 > 0 {
+                break;
+            }
         }
-        if highest != "" {
-            new_line = new_line.replace(highest, digits.get(highest).unwrap());
-        }
-
-        let u8_line = new_line.as_bytes();
-
-        let pos1 = u8_line.iter().position(|x| x < &58).unwrap();
-        let pos2 = u8_line.iter().rposition(|x| x < &58).unwrap();
-
-        let cur = u32::from((u8_line[pos1] - 48) * 10) + u32::from(u8_line[pos2] - 48);
-        tot += cur;
+        tot += (pos1 * 10) + pos2;
     }
-
     return_sol!(tot)
 }
