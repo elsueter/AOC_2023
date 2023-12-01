@@ -17,44 +17,56 @@ use std::collections::HashMap;
 
 pub fn part2(lines: &Vec<String>) -> utils::Solution {
     let digits = HashMap::from([
-        ("zero", 0u8),
-        ("one", 1u8),
-        ("two", 2u8),
-        ("three", 3u8),
-        ("four", 4u8),
-        ("five", 5u8),
-        ("six", 6u8),
-        ("seven", 7u8),
-        ("eight", 8u8),
-        ("nine", 9u8),
+        ("one", "1"),
+        ("two", "2"),
+        ("three", "3"),
+        ("four", "4"),
+        ("five", "5"),
+        ("six", "6"),
+        ("seven", "7"),
+        ("eight", "8"),
+        ("nine", "9"),
     ]);
 
     let mut tot: u32 = 0;
 
     for line in lines {
-        let mut i = 0;
-        let mut j = 0;
-        let mut u8_line: Vec<u8> = vec![];
+        let mut new_line = line.to_string();
 
-        while let Some(slice) = line.get(i..j) {
-            println!("{:}, {:?}", slice, u8_line);
-            if digits.contains_key(slice) {
-                u8_line.push(*digits.get(slice).unwrap());
-                i = j;
-            } else {
-                j += 1;
-                if j - i >= 6 {
-                    u8_line.push(slice.chars().next().unwrap() as u8 - 48);
-                    i += 1;
+        let mut lowest = "";
+        let mut highest = "";
+        let mut index = 1000;
+        let mut rindex = 0;
+
+        for digit in digits.keys() {
+            if let Some(var) = line.find(digit) {
+                if index > var {
+                    index = var;
+                    lowest = digit;
                 }
-
-                if j > line.len() {
-                    break;
+            }
+            if let Some(var) = line.rfind(digit) {
+                if rindex < var {
+                    rindex = var;
+                    highest = digit;
                 }
             }
         }
+
+        if lowest != "" {
+            new_line = line.replacen(lowest, digits.get(lowest).unwrap(), 1);
+        }
+        if highest != "" {
+            new_line = new_line.replace(highest, digits.get(highest).unwrap());
+        }
+
+        let u8_line = new_line.as_bytes();
+
         let pos1 = u8_line.iter().position(|x| x < &58).unwrap();
         let pos2 = u8_line.iter().rposition(|x| x < &58).unwrap();
+
+        let cur = u32::from((u8_line[pos1] - 48) * 10) + u32::from(u8_line[pos2] - 48);
+        tot += cur;
     }
 
     return_sol!(tot)
