@@ -85,3 +85,42 @@ pub fn lines_from_file(filename: impl AsRef<Path>) -> Vec<String> {
     let out: Vec<String> = buf.lines().map(|line| line.expect("error")).collect();
     out
 }
+
+pub fn parse_game_string(line: &String) -> Vec<u32> {
+    let mut out: Vec<u32> = vec![0, 0, 0, 0];
+    let mut split_line = line.split(":");
+    out[0] = split_line
+        .next()
+        .unwrap()
+        .split(" ")
+        .last()
+        .unwrap()
+        .parse::<u32>()
+        .unwrap();
+    let sets = split_line.next().unwrap().split(";");
+    for set in sets {
+        let colours = set.split(",");
+        for colour in colours {
+            let val = colour.split(" ").nth(1).unwrap().parse::<u32>().unwrap();
+            match colour.split(" ").last().unwrap() {
+                "red" => {
+                    if val > out[1] {
+                        out[1] = val
+                    }
+                }
+                "green" => {
+                    if val > out[2] {
+                        out[2] = val
+                    }
+                }
+                "blue" => {
+                    if val > out[3] {
+                        out[3] = val
+                    }
+                }
+                _ => println!("hit other colour?"),
+            }
+        }
+    }
+    out
+}
