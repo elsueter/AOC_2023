@@ -13,8 +13,6 @@ pub fn part1(lines: &Vec<String>) -> utils::Solution {
     return_sol!(tot)
 }
 
-use std::collections::HashMap;
-
 pub fn part2(lines: &Vec<String>) -> utils::Solution {
     let numbers = [
         "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
