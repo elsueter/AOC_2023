@@ -86,7 +86,9 @@ pub fn lines_from_file(filename: impl AsRef<Path>) -> Vec<String> {
     out
 }
 
-pub fn parse_game_string(line: &String) -> Vec<u32> {
+// Day 2 --------------------------------------------------------------
+
+pub fn parse_day02_string(line: &String) -> Vec<u32> {
     let mut out: Vec<u32> = vec![0, 0, 0, 0];
     let mut split_line = line.split(":");
     out[0] = split_line
@@ -123,4 +125,95 @@ pub fn parse_game_string(line: &String) -> Vec<u32> {
         }
     }
     out
+}
+
+// Day 3 --------------------------------------------------------------
+
+pub struct Number {
+    x: (usize, usize),
+    y: usize,
+    value: u32,
+}
+
+impl Number {
+    pub fn new() -> Number {
+        Number {
+            x: (0, 0),
+            y: 0,
+            value: 0,
+        }
+    }
+
+    pub fn next_to_solution(&self, symbol: &Symbol) -> bool {
+        if symbol.x + 1 >= self.x.0 && symbol.x <= self.x.1 {
+            if symbol.y + 1 >= self.y && symbol.y - 1 <= self.y {
+                return true;
+            }
+        }
+        false
+    }
+
+    pub fn get_value(&self) -> u32 {
+        self.value
+    }
+}
+
+pub struct Symbol {
+    x: usize,
+    y: usize,
+    value: u8,
+}
+
+impl Symbol {
+    pub fn get_value(&self) -> u8 {
+        self.value
+    }
+}
+
+pub fn parse_day03_string(lines: &Vec<String>) -> (Vec<Number>, Vec<Symbol>) {
+    let mut nums: Vec<Number> = vec![];
+    let mut symbols: Vec<Symbol> = vec![];
+    for (j, line) in lines.iter().enumerate() {
+        let mut in_number = false;
+        let mut cur_number: (usize, usize) = (0, 0);
+        line.as_bytes()
+            .iter()
+            .enumerate()
+            .for_each(|(i, c)| match c {
+                48..=57 => {
+                    if !in_number {
+                        in_number = true;
+                        cur_number.0 = i;
+                    }
+                }
+                _ => {
+                    if in_number {
+                        cur_number.1 = i;
+                        nums.push(Number {
+                            x: cur_number,
+                            y: j,
+                            value: line[cur_number.0..cur_number.1].parse::<u32>().unwrap(),
+                        });
+                        in_number = false;
+                        cur_number = (0, 0);
+                    }
+                    if *c != '.' as u8 {
+                        symbols.push(Symbol {
+                            x: i,
+                            y: j,
+                            value: *c,
+                        });
+                    }
+                }
+            });
+        if in_number {
+            cur_number.1 = line.len() - 1;
+            nums.push(Number {
+                x: cur_number,
+                y: j,
+                value: line[cur_number.0..=cur_number.1].parse::<u32>().unwrap(),
+            });
+        }
+    }
+    (nums, symbols)
 }
