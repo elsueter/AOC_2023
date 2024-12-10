@@ -28,8 +28,9 @@ pub fn part2(lines: &Vec<String>) -> utils::Solution {
     }
 
     let mut result = 0;
-    for num in lhs.iter() {
-        result += num * rhs.iter().filter(|x| *x == num).count() as u32;
-    }
+
+    lhs.iter()
+        .for_each(|num| result += num * (rhs.iter().filter(|x| *x == num).count() as u32));
+
     return_sol!(result)
 }
